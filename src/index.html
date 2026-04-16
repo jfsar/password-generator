@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+  </head>
+  <body>
+    <div class="card" role="main" aria-label="Password generator">
+      <div class="pw-input-row">
+        <div class="pw-input-wrap">
+          <span
+            class="pw-text masked"
+            id="pw-display"
+            aria-label="Generated password"
+            aria-live="polite"
+          ></span>
+          <button
+            class="eye-btn"
+            title="Toggle visibility"
+            aria-pressed="false"
+            id="eye-btn"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              id="eye-icon"
+            >
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </button>
+        </div>
+        <button
+          class="dice-btn"
+          title="Generate new password"
+          aria-label="Generate new password"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="4" />
+            <circle cx="8" cy="8" r="1.2" fill="currentColor" />
+            <circle cx="16" cy="8" r="1.2" fill="currentColor" />
+            <circle cx="12" cy="12" r="1.2" fill="currentColor" />
+            <circle cx="8" cy="16" r="1.2" fill="currentColor" />
+            <circle cx="16" cy="16" r="1.2" fill="currentColor" />
+          </svg>
+        </button>
+      </div>
+
+      <div
+        class="strength-bar-wrap"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+        id="s-bar-wrap"
+      >
+        <div class="strength-bar" id="s-bar"></div>
+      </div>
+
+      <div class="strength-row">
+        <div class="strength-left" id="s-label" aria-live="polite">
+          <span class="s-icon" id="s-icon"></span>
+          <span id="s-text"></span>
+        </div>
+        <button
+          class="copy-btn"
+          id="copy-btn"
+          aria-label="Copy password to clipboard"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="9" y="9" width="13" height="13" rx="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+          </svg>
+          Copy
+        </button>
+      </div>
+
+      <div class="type-row" role="radiogroup" aria-label="Password type">
+        <label class="radio-item"
+          ><input type="radio" name="pw-type" value="password" checked />
+          Password</label
+        >
+        <label class="radio-item"
+          ><input type="radio" name="pw-type" value="passphrase" />
+          Passphrase</label
+        >
+      </div>
+
+      <div class="slider-wrap">
+        <input
+          type="range"
+          id="pw-len"
+          min="8"
+          max="40"
+          value="20"
+          step="1"
+          aria-label="Password length"
+        />
+      </div>
+      <div class="char-length" id="len-label">Character length: 20</div>
+
+      <div
+        class="checkboxes"
+        role="group"
+        aria-label="Character types"
+        id="checkboxes-group"
+      >
+        <label class="checkbox-item" id="lbl-alpha"
+          ><input type="checkbox" id="c-alpha" checked /> A-Z</label
+        >
+        <label class="checkbox-item" id="lbl-num"
+          ><input type="checkbox" id="c-num" checked /> 0-9</label
+        >
+        <label class="checkbox-item" id="lbl-sym"
+          ><input type="checkbox" id="c-sym" checked /> !@#</label
+        >
+      </div>
+      <div
+        class="error-msg"
+        id="error-msg"
+        role="alert"
+        aria-live="assertive"
+      ></div>
+    </div>
+  </body>
+</html>
