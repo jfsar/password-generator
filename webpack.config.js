@@ -36,7 +36,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Caloryx",
+      title: "EasyCrypt",
       filename: "index.html",
       template: "./src/index.html",
     }),
