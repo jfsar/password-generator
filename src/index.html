@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Password Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>DOUGH TIME - Password Generator</title>
   </head>
   <body>
-    <div class="card" role="main" aria-label="Password generator">
+    <main class="card" aria-label="Password generator">
+      <h1 class="sr-only">DOUGH TIME — Password Generator</h1>
       <div class="pw-input-row">
         <div class="pw-input-wrap">
           <span
@@ -16,12 +19,16 @@
             aria-live="polite"
           ></span>
           <button
+            type="button"
             class="eye-btn"
             title="Toggle visibility"
+            aria-label="Hide password"
             aria-pressed="true"
             id="eye-btn"
           >
             <svg
+              aria-hidden="true"
+              focusable="false"
               width="20"
               height="20"
               viewBox="0 0 24 24"
@@ -40,11 +47,15 @@
           </button>
         </div>
         <button
+          type="button"
           class="dice-btn"
+          id="dice-btn"
           title="Generate new password"
           aria-label="Generate new password"
         >
           <svg
+            aria-hidden="true"
+            focusable="false"
             width="22"
             height="22"
             viewBox="0 0 24 24"
@@ -67,6 +78,7 @@
       <div
         class="strength-bar-wrap"
         role="progressbar"
+        aria-label="Password strength"
         aria-valuemin="0"
         aria-valuemax="100"
         aria-valuenow="0"
@@ -81,11 +93,14 @@
           <span id="s-text"></span>
         </div>
         <button
+          type="button"
           class="copy-btn"
           id="copy-btn"
           aria-label="Copy password to clipboard"
         >
           <svg
+            aria-hidden="true"
+            focusable="false"
             width="14"
             height="14"
             viewBox="0 0 24 24"
@@ -100,6 +115,12 @@
           </svg>
           Copy
         </button>
+        <span
+          class="sr-only"
+          id="copy-status"
+          role="status"
+          aria-live="polite"
+        ></span>
       </div>
 
       <div class="type-row" role="radiogroup" aria-label="Password type">
@@ -142,12 +163,12 @@
           ><input type="checkbox" id="c-sym" checked /> !@#</label
         >
       </div>
-      <div
-        class="error-msg"
-        id="error-msg"
-        role="alert"
-        aria-live="assertive"
-      ></div>
-    </div>
+      <div class="error-msg" id="error-msg" role="alert"></div>
+    </main>
+    <noscript>
+      <p class="noscript-msg">
+        This password generator requires JavaScript to run.
+      </p>
+    </noscript>
   </body>
 </html>
